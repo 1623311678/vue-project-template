@@ -5,6 +5,7 @@ module.exports = {
         app: path.resolve(__dirname, '../src/main.js'),
 
     },
+    context: path.resolve(__dirname, './'), // 这里设置了 context，确保它指向了项目根目录
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].js'
@@ -13,7 +14,7 @@ module.exports = {
         extensions: ['.js', '.vue', '.json'],
         alias: {
             // 'vue$': 'vue/dist/vue.js',
-            '@': path.resolve(__dirname, '../src')
+            '@': path.resolve(__dirname, '../src'),
         }
     },
     externals: {
@@ -21,7 +22,7 @@ module.exports = {
     module: {
         rules: [
             { test: /\.vue$/,
-              loader: 'vue-loader'
+              loader: 'vue-loader',
                 // options: vueLoaderConfig
             },
             {
@@ -30,7 +31,7 @@ module.exports = {
                 include: [path.resolve(__dirname, '../src')],
                 options: { // 如果有这个设置则不用再添加.babelrc文件进行配置
                     babelrc: true,
-                    cacheDirectory: true // 启用缓存
+                    cacheDirectory: false // 启用缓存
                 }
             },
             {

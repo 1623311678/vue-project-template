@@ -55,7 +55,7 @@ module.exports = merge(baseWebpackConfig, {
         //   index: `/dist/index.html`
         // },
         open:true,
-        port: '9003',
+        port: '9004',
         hot: false,
         disableHostCheck: true
     }
